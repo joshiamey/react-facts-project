@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import myimg from '../logo/react-logo.png';
-
+import "./style.css";
 
 function Image() {
-    return <img src={myimg} alt="logo" width="40px" />
+    return <img className="nav-logo" src={myimg} alt="logo"  />
 }
 
 function Header() {
     return ( 
     <header>
-        <nav>
+        <nav className="nav-bar">
             <Image />
+            <ul className="nav-items">
+                <li>Pricing</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
         </nav>
     </header>);
 }
@@ -19,7 +24,7 @@ function Header() {
 function Footer() {
     return (
         <footer>
-            <small>"© 20xx Amjoe development. All rights reserved."</small>
+            <small>"© 2023 Amjoe development. All rights reserved."</small>
         </footer>
     )
 }

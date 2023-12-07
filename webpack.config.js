@@ -11,7 +11,8 @@ module.exports = {
 
     plugins: [
         new HTMLWebpackPlugin( {
-            template: './src/index.html'
+            template: './src/index.html',
+            filename: 'index.html',
         })
     ],
 
@@ -30,14 +31,14 @@ module.exports = {
             {               
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
-                    'file-loader',
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            bypassOnDebug: true, // webpack@1.x
-                            disable: true, // webpack@2.x and newer
+                        'file-loader',
+                        {
+                            loader: 'image-webpack-loader',
+                            options: {
+                                bypassOnDebug: true, // webpack@1.x
+                                disable: true, // webpack@2.x and newer
+                            },                  
                         },
-                    },
                 ],                  
             },
             {
@@ -51,6 +52,9 @@ module.exports = {
     },
 
     devServer: {
+        static: {
+         directory:   path.join(__dirname, 'src'),
+        },
         port: 5000,
         hot: true,
         open: true,
